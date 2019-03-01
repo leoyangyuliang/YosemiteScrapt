@@ -1,6 +1,7 @@
 from requests_html import HTMLSession
 import json
 from pprint import pprint
+import gmaill
 
 def checkCampsite(campsiteID):
     session = HTMLSession()
@@ -32,8 +33,8 @@ while(True):
     print("Upper Pines: {}" .format(upperPines) )
     northPines = checkCampsite('232449')
     print("North Pines: {}" .format(northPines))
-    shakesslough = checkCampsite('233067')
-    print("shakes slough: {}" .format(shakesslough))
+    # shakesslough = checkCampsite('233067')
+    # print("shakes slough: {}" .format(shakesslough))
     lowerPines = checkCampsite('232450')
     print("lower Pines: {}" .format(lowerPines))
     if len(upperPines)>0:
@@ -42,6 +43,5 @@ while(True):
         gmaill.send_email("North Pines", northPines)
     elif len(lowerPines)>0:
         gmaill.send_email("Lower Pines", lowerPines)
-    elif len(shakesslough)>0:
-        gmaill.send_email("shakesslough", shakesslough)
-    
+    # elif len(shakesslough)>0:
+    #     gmaill.send_email("shakesslough", shakesslough)
