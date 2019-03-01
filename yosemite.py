@@ -2,6 +2,7 @@ from requests_html import HTMLSession
 import json
 from pprint import pprint
 import gmaill
+import datetime
 
 def checkCampsite(campsiteID):
     session = HTMLSession()
@@ -27,7 +28,8 @@ def checkCampsite(campsiteID):
     return availableSites
 
 while(True):
-    print("Searching...")
+    currentDT = datetime.datetime.now()
+    print (str(currentDT))
     print('-------------------------------------------')
     upperPines = checkCampsite('232447')
     print("Upper Pines: {}" .format(upperPines) )
