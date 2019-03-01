@@ -7,9 +7,9 @@ def send_email(subject, msg):
         server.ehlo()
         server.starttls()
         server.login(config.EMAIL_ADDRESS,config.EMAIL_PASSWARD)
-        # message = 'Subject: {}\n\n{}'.format(subject,msg)
-        # server.sendmail("config.EMAIL_ADDRESS","config.EMAIL_ADDRESS",message)
-        # server.quit()
+        message = 'Subject: {}\n\n{}'.format(subject,msg)
+        server.sendmail(config.EMAIL_ADDRESS,config.EMAIL_ADDRESS,message)
+        server.quit()
         print("success email sent")
     except:
         print("something wrong")
